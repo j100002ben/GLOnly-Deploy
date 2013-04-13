@@ -228,8 +228,4 @@ foreach($commands AS $index => $command){
 	}
 }
 
-if( !empty($_POST['payload']) ){
-	$output .= $_POST['payload'];
-}
-
 send_mail('GLonly <auto-deploy@glonly.tw>', $_SERVER['SERVER_ADMIN'], "[GLonly][{$branch}] Auto deploy info.", $output);
