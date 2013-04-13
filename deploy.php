@@ -198,7 +198,7 @@ $commands = array(
 );
 
 $payload = json_decode($_POST['payload']);
-$ref = explode('/', $payload['ref']);
+$ref = explode('/', $payload->ref);
 $branch = end($ref);
 
 switch($branch){
