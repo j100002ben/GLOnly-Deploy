@@ -228,4 +228,4 @@ foreach($commands AS $index => $command){
 	}
 }
 
-send_mail('GLonly <auto-deploy@glonly.tw>', $_SERVER['SERVER_ADMIN'], "[GLonly][{$branch}] Auto deploy info.", $output);
+send_mail('GLonly Auto Deploy <auto-deploy@glonly.tw>', $_SERVER['SERVER_ADMIN'], "[GLonly][{$branch}] Auto deploy info.", $output);
