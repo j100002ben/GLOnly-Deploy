@@ -25,7 +25,7 @@ function send_mail($from, $to, $subject, $body)
 $commands = array(
 	'echo $PWD',
 	'whoami',
-	'/var/www/scripts/stage_pull.sh'
+	'/var/www/scripts/stage_pull.sh 2>&1'
 );
 
 // Run the commands for output
