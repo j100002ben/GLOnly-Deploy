@@ -33,7 +33,7 @@ $output = '';
 foreach($commands AS $command){
 	// Run it
 	$tmp = shell_exec($command);
-	$tmp = htmlentities(trim($tmp));
+	$tmp = trim($tmp);
 	// Output
 	$output .= "\${$command}:\r\n{$tmp}\r\n---------\r\n";
 }
