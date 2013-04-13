@@ -35,7 +35,7 @@ foreach($commands AS $command){
 	$tmp = shell_exec($command);
 	$tmp = htmlentities(trim($tmp));
 	// Output
-	$output = "\${$command}:\r\n{$tmp}\r\n---------\r\n";
+	$output .= "\${$command}:\r\n{$tmp}\r\n---------\r\n";
 }
 
 send_mail('auto-deploy@glonly.tw', $_SERVER['SERVER_ADMIN'], 'Git deploymeny info.', $output);
