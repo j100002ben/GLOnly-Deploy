@@ -194,9 +194,25 @@ if( $ip_valid === FALSE ){
 // The commands
 $commands = array(
 	'echo $PWD',
-	'whoami',
-	'/var/www/scripts/stage_pull.sh 2>&1'
+	'whoami'
 );
+
+$payload = json_decode($_POST['payload']);
+$ref = explode('/', $payload['ref']);
+$branch = end($ref);
+
+switch($branch){
+	case 'stage':
+		$commands[] = '/var/www/scripts/stage_pull.sh 2>&1';
+		break;
+	case 'production':
+		$commands[] = '/var/www/scripts/production_pull.sh 2>&1';
+		break;
+	default:
+		exit();
+		break;
+}
+$branch = strtoupper($branch);
 
 // Run the commands for output
 $output = '';
@@ -216,4 +232,4 @@ if( !empty($_POST['payload']) ){
 	$output .= $_POST['payload'];
 }
 
-send_mail('auto-deploy@glonly.tw', $_SERVER['SERVER_ADMIN'], 'Git deploymeny info.', $output);
+send_mail('GLonly <auto-deploy@glonly.tw>', $_SERVER['SERVER_ADMIN'], "[GLonly][{$branch}] Auto deploy info.", $output);
