@@ -5,6 +5,7 @@
  *		https://gist.github.com/1809044
  */
 
+header('X-Powered-By: Glonly');
 global $ip_address;
 $ip_address = FALSE;
 
